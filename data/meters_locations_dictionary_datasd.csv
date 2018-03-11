@@ -1,0 +1,9 @@
+Field,Description,Values
+zone,The parking district to which the meter belongs,
+area,The neighborhood the meter resides in,
+sub_area,The block number and street of the meter,
+pole,Unique pole id,
+config_code,Configuration code,
+config_name,Configuration description,
+longitude,meter location longitude (may not be accurate),
+latitude,meter location latitude (may not be accurate),

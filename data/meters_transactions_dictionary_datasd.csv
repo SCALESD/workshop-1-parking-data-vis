@@ -1,0 +1,8 @@
+Field,Description,Values
+meter_type,Type of meter,SS (Single Space) or MS (Multi Space)
+pole_id,Unique Meter ID,
+trans_amt,Transaction amount in cents,
+pay_method,Method of payment,"One of: CASH, CREDIT CARD, PAYBYPHONE, SMART CARD, SMART CARD REFUND"
+trans_start,Transaction start date and time,
+meter_expire,Meter expiration date and time,
+smartcard_id,Smart card serial number,
