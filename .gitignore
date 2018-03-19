@@ -1,1 +1,12 @@
+# Python bytecode
+*.pyc
 __pycache__
+
+# tox automation project
+tox.ini
+
+# Virtual environment
+venv
+
+# Generated HTML files
+*.html

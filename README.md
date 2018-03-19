@@ -1,8 +1,14 @@
-# workshop-1-parking-data-vis
+# Workshop 1: Parking Data Visualization
 This repoistory contains example code for working with parking meter and transaction data from City of San Diego.
 
+## Setup
+
+### Required Packages
+
+The required packages are listed in the `requirements.txt` file. We recommend installing them into a [virtual environment](https://virtualenv.pypa.io/en/stable/userguide/).
+
 ### Google Maps API
-Google requires an API key when requesting images from its service. The account is free and instructions on setting one up and getting an API key can be found here:  
+Google requires an API key when requesting images from its service. The account is free and instructions on setting one up and getting an API key can be found here:
 
 [https://developers.google.com/maps/documentation/javascript/get-api-key link](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
