@@ -26,8 +26,8 @@ print(json.dumps(csvdata, indent=4, sort_keys=True))
 
 data = ColumnDataSource(
     data=dict(
-        x=[int(x[0]) for x in csvdata],
-        y=[int(y[1]) for y in csvdata]
+        x=[int(point[0]) for point in csvdata],
+        y=[int(point[1]) for point in csvdata]
     )
 )
 
@@ -42,7 +42,7 @@ attrs = {
 
 circle = Circle(**attrs)
 
-fig = figure(title="Random X, Y")
+fig = figure(title="CSV File X, Y")
 fig.add_glyph(data, circle)
 
 show(fig)

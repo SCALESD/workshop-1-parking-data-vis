@@ -2,17 +2,14 @@
 
 import csv
 
-PARKING_METER_LOCATION_DATA_FILE = "data/treas_parking_meters_loc_datasd.csv"
-
-GASLAMP_BOUNDING_BOX = (32.716, -117.164, 32.705749, -117.157)
+from constants import GASLAMP_BOUNDING_BOX, PARKING_METER_LOCATION_DATA_FILE
 
 
 class Meter:
-
-    def __init__(self, dict):
-        self.id = dict['pole']
-        self.long = float(dict['longitude'])
-        self.lat = float(dict['latitude'])
+    def __init__(self, data):
+        self.id = data['pole']
+        self.lng = float(data['longitude'])
+        self.lat = float(data['latitude'])
 
     @classmethod
     def allpoles(cls):
@@ -28,18 +25,12 @@ class Meter:
         return cls._poles
 
     @classmethod
-    def pole_for_location(cls, pole):
-        if not hasattr(cls, '_poles_by_location'):
-            poles = {x['pole']: x for x in cls.allpoles()}
-            cls._poles_by_location = poles
-
-        return cls._poles_by_location[pole] if pole in cls._poles_by_location else None
-
-    @classmethod
     def poles_in_region(cls, bounding_box):
-        lat_a, long_a, lat_b, long_b = bounding_box
-        return list(filter(lambda l: (l.lat <= lat_a and l.lat >= lat_b and
-                                      l.long >= long_a and l.long <= long_b, cls.allpoles())))
+        lat_a, lng_a, lat_b, lng_b = bounding_box
+        return [pole for pole in cls.allpoles() if (pole.lat <= lat_a and
+                                                    pole.lat >= lat_b and
+                                                    pole.lng >= lng_a and
+                                                    pole.lng <= lng_b)]
 
     @classmethod
     def poles_in_gaslamp(cls):

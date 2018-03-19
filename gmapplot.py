@@ -8,8 +8,8 @@ from bokeh.plotting import curdoc
 
 class GoogleMapPlot:
 
-    def __init__(self, api_key, lat, long, type, zoom):
-        map_options = GMapOptions(lat=lat, lng=long, map_type=type, zoom=zoom)
+    def __init__(self, api_key, lat, lng, type, zoom):
+        map_options = GMapOptions(lat=lat, lng=lng, map_type=type, zoom=zoom)
 
         self.plot = GMapPlot(api_key=api_key,
                              x_range=Range1d(),
@@ -27,13 +27,13 @@ class GoogleMapPlot:
     def draw_points_with_circle_glyph(self, data, attrs):
         data = ColumnDataSource(
             data=dict(
-                lat=[x[0] for x in data],
-                long=[x[1] for x in data],
+                lat=[point[0] for point in data],
+                lng=[point[1] for point in data],
             )
         )
 
         defaults = {
-            'x': 'long',
+            'x': 'lng',
             'y': 'lat',
             'size': 2,
             'fill_color': 'blue',
@@ -50,12 +50,12 @@ class GoogleMapPlot:
 
     def update(self, source, data):
         source.data = dict(
-            lat=[x[0] for x in data],
-            long=[x[1] for x in data],
+            lat=[point[0] for point in data],
+            lng=[point[1] for point in data],
         )
 
-    def add_slider(self, min, max, step, init, title, callback=None):
-        slider = Slider(start=min, end=max, value=init, step=step, title=title)
+    def add_slider(self, start, end, step, init, title, callback=None):
+        slider = Slider(start=start, end=end, value=init, step=step, title=title)
 
         slider.on_change('value', self.slider_handler_callback)
         self.slider_callback = callback
