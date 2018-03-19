@@ -1,5 +1,5 @@
 # Workshop 1: Parking Data Visualization
-This repoistory contains example code for working with parking meter and transaction data from City of San Diego.
+This repository contains example code for working with parking meter and transaction data from City of San Diego.
 
 ## Setup
 
