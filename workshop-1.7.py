@@ -46,7 +46,7 @@ def update_plot(day):
     for pole, grouped_transactions in groupby(transactions, lambda t: t.pole):
         hours = sum([t.duration for t in grouped_transactions])
         i = min(
-            int(floor(HEATMAP_SCALING * hours / Transaction.MAX_DURATION * HEATMAP_GRANULARITY)),
+            floor(HEATMAP_SCALING * hours / Transaction.MAX_DURATION * HEATMAP_GRANULARITY),
             HEATMAP_GRANULARITY - 1
         )
         poles_by_heat[i] += [pole]
