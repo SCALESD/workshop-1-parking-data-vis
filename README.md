@@ -20,5 +20,4 @@ The first four scripts are run from the command line like this: `python3 worksho
 The final three scripts include interactions and require Bokeh to be running in the background.  Run them like this:
 `bokeh serve workshop-1.5.py`
 
-
-
+The default Bokeh URL is: `http://localhost:5006/`
